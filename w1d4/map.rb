@@ -15,7 +15,18 @@ class Map
         @mvar.any? { |el| el[0] == key }
       end
 
-    
+      def remove(key)
+        @mvar.map { |el| el unles el == key }
+      end
+
+      def lookup(key)
+        @mvar.each_index do |idx|
+          @mvar[idx][1] if @mvar[idx][0] == key
+        end
+      end
+
+      
+
 end
 
 
