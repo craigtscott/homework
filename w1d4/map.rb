@@ -32,13 +32,17 @@ class Map
     end
   end
 
-
+  def show
+    @mvar.each_index do |idx|
+      puts "#{@mvar[idx][0]} ~> #{@mvar[idx][1]}"
+    end
+  end
 
 end
 
-# a = Map.new
-# a.assign('a',1)
-# a.assign('b',2)
-# a.assign('c',3)
-# a.assign('d',4)
+a = Map.new
+a.assign('a',1)
+a.assign('b',2)
+a.assign('c',3)
+a.assign('d',4)
 # assign(key, value), lookup(key), remove(key), show
