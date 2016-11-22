@@ -1,6 +1,5 @@
 require 'byebug'
 class Map
-
   def initialize
     @mvar = []
   end
@@ -8,9 +7,9 @@ class Map
   def assign(key, val)
     if key_exist(key)
       remove(key)
-      assign(key,val)
+      assign(key, val)
     else
-      @mvar << [key,val]
+      @mvar << [key, val]
     end
   end
 
@@ -28,7 +27,7 @@ class Map
   def lookup(key)
     # debugger
     @mvar.each_index do |idx|
-    puts  @mvar[idx][1] if @mvar[idx][0] == key
+      puts @mvar[idx][1] if @mvar[idx][0] == key
     end
   end
 
@@ -37,12 +36,11 @@ class Map
       puts "#{@mvar[idx][0]} ~> #{@mvar[idx][1]}"
     end
   end
-
 end
 
-a = Map.new
-a.assign('a',1)
-a.assign('b',2)
-a.assign('c',3)
-a.assign('d',4)
+# b = Map.new
+# b.assign('a', 1)
+# b.assign('b', 2)
+# b.assign('c', 3)
+# b.assign('d', 4)
 # assign(key, value), lookup(key), remove(key), show
