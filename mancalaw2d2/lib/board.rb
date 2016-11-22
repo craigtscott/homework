@@ -46,7 +46,7 @@ class Board
       end
       idx += 1
     end
-    ending_cup_idx = (start_pos + idx - 1 ) % 13
+    ending_cup_idx = (start_pos + idx - 1 ) % 14
     render
     next_turn(ending_cup_idx)
 
@@ -54,9 +54,13 @@ class Board
   end
 
   def next_turn(ending_cup_idx)
-debugger
-    if @cups[ending_cup_idx] && @cups[ending_cup_idx].length == 1
+# debugger
+    if ending_cup_idx == 13 || ending_cup_idx == 6
+      :prompt
+    elsif @cups[ending_cup_idx] && @cups[ending_cup_idx].length == 1
       :switch
+    else
+      ending_cup_idx
     end
     # helper method to determine what #make_move returns
   end
