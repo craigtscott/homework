@@ -56,14 +56,23 @@ describe Dessert do
       expect(cookie.quantity).to eq(42)
     end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect{ cookie.eat(200) }.to raise_error("not enough left!")
+    end
   end
 
   describe "#serve" do
-    it "contains the titleized version of the chef's name"
+    it "contains the titleized version of the chef's name" do
+      allow(chef).to receive(:titleize).and_return("Chef Worrell the Great Baker")
+      expect(cookie.serve).to eq("Chef Worrell the Great Baker has made 100 cookies!")
+    end
   end
 
   describe "#make_more" do
-    it "calls bake on the dessert's chef with the dessert passed in"
+    it "calls bake on the dessert's chef with the dessert passed in" do
+      expect(chef).to receive(:bake).with(cookie)
+      cookie.make_more
+    end
+
   end
 end
