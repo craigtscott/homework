@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    render json: Books.all
+    @books = Books.all
   end
 
   def new
